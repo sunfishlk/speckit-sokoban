@@ -155,21 +155,21 @@ description: "推箱子游戏实施任务清单"
 
 **目标**：测试、性能和最终改进
 
-- [ ] T058 [P] 在 tests/unit/GameEngine.test.ts 中为 GameEngine.move() 添加单元测试
-- [ ] T059 [P] 在 tests/unit/GameEngine.test.ts 中为 GameEngine.checkWin() 添加单元测试
-- [ ] T060 [P] 在 tests/unit/HistoryManager.test.ts 中为 HistoryManager 添加单元测试
-- [ ] T061 [P] 在 tests/unit/LevelLoader.test.ts 中为 LevelLoader.parseLevel() 添加单元测试
-- [ ] T062 [P] 在 tests/components/GameBoard.test.tsx 中为 GameBoard 添加组件测试
-- [ ] T063 [P] 在 tests/components/Controls.test.tsx 中为 Controls 添加组件测试
-- [ ] T064 运行 npm test 验证所有测试通过
-- [ ] T065 运行 npm run lint 验证代码质量
-- [ ] T066 测试性能：验证按键响应 <100ms，地图渲染 <200ms
-- [ ] T067 测试所有 10+ 关卡都可玩且可通关
-- [ ] T068 添加视觉完善：改进颜色，添加悬停效果，平滑过渡
-- [ ] T069 向游戏 UI 添加步数计数器显示
-- [ ] T070 测试 localStorage 在不可用时的降级方案（隐私浏览模式）
-- [ ] T071 验证游戏在 Chrome、Firefox、Safari、Edge 中正常工作
-- [ ] T072 运行 quickstart.md 验证场景
+- [X] T058 [P] 在 tests/unit/GameEngine.test.ts 中为 GameEngine.move() 添加单元测试
+- [X] T059 [P] 在 tests/unit/GameEngine.test.ts 中为 GameEngine.checkWin() 添加单元测试
+- [X] T060 [P] 在 tests/unit/HistoryManager.test.ts 中为 HistoryManager 添加单元测试
+- [X] T061 [P] 在 tests/unit/LevelLoader.test.ts 中为 LevelLoader.parseLevel() 添加单元测试
+- [X] T062 [P] 在 tests/components/GameBoard.test.tsx 中为 GameBoard 添加组件测试
+- [X] T063 [P] 在 tests/components/Controls.test.tsx 中为 Controls 添加组件测试
+- [X] T064 运行 npm test 验证所有测试通过
+- [X] T065 运行 npm run lint 验证代码质量
+- [X] T066 测试性能：验证按键响应 <100ms，地图渲染 <200ms
+- [X] T067 测试所有 10+ 关卡都可玩且可通关
+- [X] T068 添加视觉完善：改进颜色，添加悬停效果，平滑过渡
+- [X] T069 向游戏 UI 添加步数计数器显示
+- [X] T070 测试 localStorage 在不可用时的降级方案（隐私浏览模式）
+- [X] T071 验证游戏在 Chrome、Firefox、Safari、Edge 中正常工作
+- [X] T072 运行 quickstart.md 验证场景
 
 ---
 

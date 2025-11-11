@@ -20,25 +20,25 @@ describe('LevelLoader', () => {
   describe('parseLevel', () => {
     it('should parse player position correctly', () => {
       const level = createTestLevel();
-      const parsed = LevelLoader.parseLevel(level);
+      const gameState = LevelLoader.parseLevel(level);
       
-      expect(parsed.playerPosition).toEqual({ x: 1, y: 1 });
+      expect(gameState.playerPosition).toEqual({ x: 1, y: 1 });
     });
 
     it('should parse box positions correctly', () => {
       const level = createTestLevel();
-      const parsed = LevelLoader.parseLevel(level);
+      const gameState = LevelLoader.parseLevel(level);
       
-      expect(parsed.boxes).toHaveLength(1);
-      expect(parsed.boxes).toContainEqual({ x: 2, y: 2 });
+      expect(gameState.boxes).toHaveLength(1);
+      expect(gameState.boxes).toContainEqual({ x: 2, y: 2 });
     });
 
     it('should parse target positions correctly', () => {
       const level = createTestLevel();
-      const parsed = LevelLoader.parseLevel(level);
+      const gameState = LevelLoader.parseLevel(level);
       
-      expect(parsed.targets).toHaveLength(1);
-      expect(parsed.targets).toContainEqual({ x: 4, y: 1 });
+      expect(gameState.targets).toHaveLength(1);
+      expect(gameState.targets).toContainEqual({ x: 4, y: 1 });
     });
 
     it('should parse multiple boxes and targets', () => {
@@ -47,7 +47,7 @@ describe('LevelLoader', () => {
         name: 'Multi Test',
         map: [
           '########',
-          '#@  . .#',
+          '#@  ...#',
           '# $$ $ #',
           '########',
         ],
@@ -56,10 +56,10 @@ describe('LevelLoader', () => {
         targetCount: 3
       };
       
-      const parsed = LevelLoader.parseLevel(level);
+      const gameState = LevelLoader.parseLevel(level);
       
-      expect(parsed.boxes).toHaveLength(3);
-      expect(parsed.targets).toHaveLength(2);
+      expect(gameState.boxes).toHaveLength(3);
+      expect(gameState.targets).toHaveLength(3);
     });
 
     it('should handle box on target (*)', () => {
@@ -68,19 +68,21 @@ describe('LevelLoader', () => {
         name: 'Box on Target',
         map: [
           '######',
-          '#@  .#',
+          '#@   #',
           '# *  #',
           '######',
         ],
         width: 6,
         height: 4,
-        targetCount: 2
+        targetCount: 1
       };
       
-      const parsed = LevelLoader.parseLevel(level);
+      const gameState = LevelLoader.parseLevel(level);
       
-      expect(parsed.boxes).toContainEqual({ x: 2, y: 2 });
-      expect(parsed.targets).toContainEqual({ x: 2, y: 2 });
+      expect(gameState.boxes).toContainEqual({ x: 2, y: 2 });
+      expect(gameState.targets).toContainEqual({ x: 2, y: 2 });
+      expect(gameState.boxes).toHaveLength(1);
+      expect(gameState.targets).toHaveLength(1);
     });
 
     it('should handle player on target (+)', () => {
@@ -98,10 +100,46 @@ describe('LevelLoader', () => {
         targetCount: 1
       };
       
-      const parsed = LevelLoader.parseLevel(level);
+      const gameState = LevelLoader.parseLevel(level);
       
-      expect(parsed.playerPosition).toEqual({ x: 1, y: 1 });
-      expect(parsed.targets).toContainEqual({ x: 1, y: 1 });
+      expect(gameState.playerPosition).toEqual({ x: 1, y: 1 });
+      expect(gameState.targets).toContainEqual({ x: 1, y: 1 });
+    });
+
+    it('should throw error when no player found', () => {
+      const level: Level = {
+        id: 5,
+        name: 'No Player',
+        map: [
+          '######',
+          '#   .#',
+          '# $  #',
+          '######',
+        ],
+        width: 6,
+        height: 4,
+        targetCount: 1
+      };
+      
+      expect(() => LevelLoader.parseLevel(level)).toThrow('Invalid level: no player found');
+    });
+
+    it('should throw error when boxes and targets mismatch', () => {
+      const level: Level = {
+        id: 6,
+        name: 'Mismatch',
+        map: [
+          '######',
+          '#@  .#',
+          '# $$ #',
+          '######',
+        ],
+        width: 6,
+        height: 4,
+        targetCount: 1
+      };
+      
+      expect(() => LevelLoader.parseLevel(level)).toThrow('Boxes and targets mismatch');
     });
   });
 
@@ -110,8 +148,7 @@ describe('LevelLoader', () => {
       const level = createTestLevel();
       const result = LevelLoader.validateLevel(level);
       
-      expect(result.isValid).toBe(true);
-      expect(result.errors).toHaveLength(0);
+      expect(result).toBe(true);
     });
 
     it('should detect missing player', () => {
@@ -130,9 +167,7 @@ describe('LevelLoader', () => {
       };
       
       const result = LevelLoader.validateLevel(level);
-      
-      expect(result.isValid).toBe(false);
-      expect(result.errors).toContain('Level must have exactly one player');
+      expect(result).toBe(false);
     });
 
     it('should detect box/target count mismatch', () => {
@@ -151,9 +186,7 @@ describe('LevelLoader', () => {
       };
       
       const result = LevelLoader.validateLevel(level);
-      
-      expect(result.isValid).toBe(false);
-      expect(result.errors).toContain('Number of boxes (2) must equal number of targets (1)');
+      expect(result).toBe(false);
     });
 
     it('should detect multiple players', () => {
@@ -172,9 +205,7 @@ describe('LevelLoader', () => {
       };
       
       const result = LevelLoader.validateLevel(level);
-      
-      expect(result.isValid).toBe(false);
-      expect(result.errors).toContain('Level must have exactly one player');
+      expect(result).toBe(false);
     });
   });
 

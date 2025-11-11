@@ -1,18 +1,28 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useRef } from 'react';
 import { SaveData } from '@/types/game';
 import { loadSaveData, saveSaveData } from '@/utils/storage';
 import { DEFAULT_SAVE_DATA } from '@/data/levels';
 
 export const useLocalStorage = () => {
+  const isStorageAvailable = useRef(true);
+  
   const [saveData, setSaveData] = useState<SaveData>(() => {
-    const loaded = loadSaveData();
-    return loaded || DEFAULT_SAVE_DATA;
+    try {
+      const loaded = loadSaveData();
+      return loaded || DEFAULT_SAVE_DATA;
+    } catch (error) {
+      console.warn('localStorage not available, using in-memory storage');
+      isStorageAvailable.current = false;
+      return DEFAULT_SAVE_DATA;
+    }
   });
 
   const updateSaveData = useCallback((updates: Partial<SaveData>) => {
     setSaveData(prev => {
       const newData = { ...prev, ...updates };
-      saveSaveData(newData);
+      if (isStorageAvailable.current) {
+        saveSaveData(newData);
+      }
       return newData;
     });
   }, []);
@@ -26,7 +36,9 @@ export const useLocalStorage = () => {
         ...prev,
         unlockedLevels: [...prev.unlockedLevels, levelId].sort((a, b) => a - b)
       };
-      saveSaveData(newData);
+      if (isStorageAvailable.current) {
+        saveSaveData(newData);
+      }
       return newData;
     });
   }, []);
@@ -41,7 +53,9 @@ export const useLocalStorage = () => {
         ...prev,
         bestSteps: { ...prev.bestSteps, [levelId]: steps }
       };
-      saveSaveData(newData);
+      if (isStorageAvailable.current) {
+        saveSaveData(newData);
+      }
       return newData;
     });
   }, []);
@@ -49,7 +63,9 @@ export const useLocalStorage = () => {
   const setCurrentLevel = useCallback((levelId: number) => {
     setSaveData(prev => {
       const newData = { ...prev, currentLevel: levelId };
-      saveSaveData(newData);
+      if (isStorageAvailable.current) {
+        saveSaveData(newData);
+      }
       return newData;
     });
   }, []);

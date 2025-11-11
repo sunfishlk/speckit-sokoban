@@ -1,4 +1,5 @@
 import { Level, GameState, Position } from '@/types/game';
+import { LEVELS } from '@/data/levels';
 
 export class LevelLoader {
   static parseLevel(level: Level): GameState {
@@ -102,7 +103,7 @@ export class LevelLoader {
     return true;
   }
 
-  static loadLevelById(id: number, levels: Level[]): Level | null {
-    return levels.find(level => level.id === id) || null;
+  static loadLevelById(id: number): Level | null {
+    return LEVELS.find(level => level.id === id) || null;
   }
 }

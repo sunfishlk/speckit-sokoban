@@ -47,6 +47,10 @@ export const Cell = ({ type, testId }: CellProps) => {
   const baseStyle: React.CSSProperties = {
     width: '40px',
     height: '40px',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    transition: 'all 0.2s ease-in-out',
     ...cellStyles[type],
   };
 

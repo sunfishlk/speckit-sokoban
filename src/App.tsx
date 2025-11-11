@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import { useCallback, useState } from 'react';
 import { GameBoard } from './components/GameBoard';
 import { WinDialog } from './components/WinDialog';
 import { Controls } from './components/Controls';
