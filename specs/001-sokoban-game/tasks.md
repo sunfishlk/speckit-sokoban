@@ -28,11 +28,11 @@ description: "推箱子游戏实施任务清单"
 
 **目标**：项目初始化和基本结构
 
-- [ ] T001 在仓库根目录初始化 Vite React TypeScript 项目
-- [ ] T002 [P] 安装依赖包（React 18, TypeScript 5, Vite）
-- [ ] T003 [P] 在 tsconfig.json 中配置 TypeScript 严格模式
-- [ ] T004 [P] 在 vite.config.ts 中配置 Vitest 单元测试
-- [ ] T005 [P] 创建项目目录结构（src/types, src/data, src/core, src/components, src/hooks, src/utils）
+- [X] T001 在仓库根目录初始化 Vite React TypeScript 项目
+- [X] T002 [P] 安装依赖包（React 18, TypeScript 5, Vite）
+- [X] T003 [P] 在 tsconfig.json 中配置 TypeScript 严格模式
+- [X] T004 [P] 在 vite.config.ts 中配置 Vitest 单元测试
+- [X] T005 [P] 创建项目目录结构（src/types, src/data, src/core, src/components, src/hooks, src/utils）
 
 ---
 
@@ -42,21 +42,21 @@ description: "推箱子游戏实施任务清单"
 
 **⚠️ 关键**：在此阶段完成之前，不能开始任何用户故事的工作
 
-- [ ] T006 [P] 在 src/types/game.ts 中定义 Position 接口
-- [ ] T007 [P] 在 src/types/game.ts 中定义 CellType 枚举
-- [ ] T008 [P] 在 src/types/game.ts 中定义 Direction 枚举和 DIRECTION_VECTORS
-- [ ] T009 [P] 在 src/types/game.ts 中定义 Level 接口
-- [ ] T010 [P] 在 src/types/game.ts 中定义 GameState 接口
-- [ ] T011 [P] 在 src/types/game.ts 中定义 GameSnapshot 接口
-- [ ] T012 [P] 在 src/types/game.ts 中定义 SaveData 接口
-- [ ] T013 在 src/data/levels.ts 中创建初始关卡数据（至少 3 关）
-- [ ] T014 [P] 在 src/core/LevelLoader.ts 中实现 LevelLoader.parseLevel()
-- [ ] T015 [P] 在 src/core/LevelLoader.ts 中实现 LevelLoader.validateLevel()
-- [ ] T016 [P] 在 src/core/LevelLoader.ts 中实现 LevelLoader.loadLevelById()
-- [ ] T017 在 src/core/GameEngine.ts 中实现 GameEngine.getCellType()
-- [ ] T018 [P] 在 src/core/GameEngine.ts 中实现 GameEngine.isValidPosition()
-- [ ] T019 在 src/core/GameEngine.ts 中实现 GameEngine.checkWin()
-- [ ] T020 在 src/core/GameEngine.ts 中实现包含碰撞检测的 GameEngine.move()
+- [X] T006 [P] 在 src/types/game.ts 中定义 Position 接口
+- [X] T007 [P] 在 src/types/game.ts 中定义 CellType 枚举
+- [X] T008 [P] 在 src/types/game.ts 中定义 Direction 枚举和 DIRECTION_VECTORS
+- [X] T009 [P] 在 src/types/game.ts 中定义 Level 接口
+- [X] T010 [P] 在 src/types/game.ts 中定义 GameState 接口
+- [X] T011 [P] 在 src/types/game.ts 中定义 GameSnapshot 接口
+- [X] T012 [P] 在 src/types/game.ts 中定义 SaveData 接口
+- [X] T013 在 src/data/levels.ts 中创建初始关卡数据（至少 3 关）
+- [X] T014 [P] 在 src/core/LevelLoader.ts 中实现 LevelLoader.parseLevel()
+- [X] T015 [P] 在 src/core/LevelLoader.ts 中实现 LevelLoader.validateLevel()
+- [X] T016 [P] 在 src/core/LevelLoader.ts 中实现 LevelLoader.loadLevelById()
+- [X] T017 在 src/core/GameEngine.ts 中实现 GameEngine.getCellType()
+- [X] T018 [P] 在 src/core/GameEngine.ts 中实现 GameEngine.isValidPosition()
+- [X] T019 在 src/core/GameEngine.ts 中实现 GameEngine.checkWin()
+- [X] T020 在 src/core/GameEngine.ts 中实现包含碰撞检测的 GameEngine.move()
 
 **检查点**：基础架构就绪 - 现在可以并行开始用户故事实施
 
@@ -70,16 +70,16 @@ description: "推箱子游戏实施任务清单"
 
 ### 用户故事 1 的实施
 
-- [ ] T021 [P] [US1] 在 src/components/Cell.tsx 中创建 Cell 组件来渲染单个网格格子
-- [ ] T022 [P] [US1] 在 src/hooks/useKeyboard.ts 中创建处理方向键输入的 useKeyboard hook
-- [ ] T023 [US1] 在 src/hooks/useGameState.ts 中创建游戏状态管理的 useGameState hook（依赖 T020）
-- [ ] T024 [US1] 在 src/components/GameBoard.tsx 中创建渲染游戏网格的 GameBoard 组件（依赖 T021）
-- [ ] T025 [US1] 在 src/components/WinDialog.tsx 中创建通关提示的 WinDialog 组件
-- [ ] T026 [US1] 在 src/hooks/useGameState.ts 中集成键盘控制与游戏状态（依赖 T022, T023）
-- [ ] T027 [US1] 在 src/hooks/useGameState.ts 中添加每次移动后的通关检测触发（依赖 T019）
-- [ ] T028 [US1] 实现 App.tsx 以初始化第一关游戏并渲染 GameBoard
-- [ ] T029 [US1] 创建 main.tsx 入口点以挂载 React 应用
-- [ ] T030 [US1] 为游戏棋盘网格布局添加基本 CSS 样式
+- [X] T021 [P] [US1] 在 src/components/Cell.tsx 中创建 Cell 组件来渲染单个网格格子
+- [X] T022 [P] [US1] 在 src/hooks/useKeyboard.ts 中创建处理方向键输入的 useKeyboard hook
+- [X] T023 [US1] 在 src/hooks/useGameState.ts 中创建游戏状态管理的 useGameState hook（依赖 T020）
+- [X] T024 [US1] 在 src/components/GameBoard.tsx 中创建渲染游戏网格的 GameBoard 组件（依赖 T021）
+- [X] T025 [US1] 在 src/components/WinDialog.tsx 中创建通关提示的 WinDialog 组件
+- [X] T026 [US1] 在 src/hooks/useGameState.ts 中集成键盘控制与游戏状态（依赖 T022, T023）
+- [X] T027 [US1] 在 src/hooks/useGameState.ts 中添加每次移动后的通关检测触发（依赖 T019）
+- [X] T028 [US1] 实现 App.tsx 以初始化第一关游戏并渲染 GameBoard
+- [X] T029 [US1] 创建 main.tsx 入口点以挂载 React 应用
+- [X] T030 [US1] 为游戏棋盘网格布局添加基本 CSS 样式
 
 **检查点**：此时用户故事 1 应该完全可用 - 可以从开始到通关玩第一关
 
@@ -93,17 +93,17 @@ description: "推箱子游戏实施任务清单"
 
 ### 用户故事 2 的实施
 
-- [ ] T031 [P] [US2] 在 src/core/HistoryManager.ts 中实现 HistoryManager.push()
-- [ ] T032 [P] [US2] 在 src/core/HistoryManager.ts 中实现 HistoryManager.pop()
-- [ ] T033 [P] [US2] 在 src/core/HistoryManager.ts 中实现 HistoryManager.clear()
-- [ ] T034 [P] [US2] 在 src/core/HistoryManager.ts 中实现 HistoryManager.canUndo()
-- [ ] T035 [P] [US2] 在 src/core/HistoryManager.ts 中实现 HistoryManager.size()
-- [ ] T036 [US2] 将 HistoryManager 与 useGameState hook 集成，在每次移动前保存状态
-- [ ] T037 [US2] 向 useGameState 添加调用 HistoryManager.pop() 的撤销函数
-- [ ] T038 [US2] 在 src/components/Controls.tsx 中创建包含撤销按钮的 Controls 组件
-- [ ] T039 [US2] 在 useKeyboard hook 中添加撤销的键盘快捷键（Z 键）
-- [ ] T040 [US2] 更新 GameBoard 以包含 Controls 组件
-- [ ] T041 [US2] 为 Controls 组件添加 CSS 样式
+- [X] T031 [P] [US2] 在 src/core/HistoryManager.ts 中实现 HistoryManager.push()
+- [X] T032 [P] [US2] 在 src/core/HistoryManager.ts 中实现 HistoryManager.pop()
+- [X] T033 [P] [US2] 在 src/core/HistoryManager.ts 中实现 HistoryManager.clear()
+- [X] T034 [P] [US2] 在 src/core/HistoryManager.ts 中实现 HistoryManager.canUndo()
+- [X] T035 [P] [US2] 在 src/core/HistoryManager.ts 中实现 HistoryManager.size()
+- [X] T036 [US2] 将 HistoryManager 与 useGameState hook 集成，在每次移动前保存状态
+- [X] T037 [US2] 向 useGameState 添加调用 HistoryManager.pop() 的撤销函数
+- [X] T038 [US2] 在 src/components/Controls.tsx 中创建包含撤销按钮的 Controls 组件
+- [X] T039 [US2] 在 useKeyboard hook 中添加撤销的键盘快捷键（Z 键）
+- [X] T040 [US2] 更新 GameBoard 以包含 Controls 组件
+- [X] T041 [US2] 为 Controls 组件添加 CSS 样式
 
 **检查点**：此时用户故事 1 和 2 都应该工作 - 可以玩游戏并撤销错误
 
@@ -117,10 +117,10 @@ description: "推箱子游戏实施任务清单"
 
 ### 用户故事 3 的实施
 
-- [ ] T042 [US3] 向 useGameState 添加重新开始函数，清除历史并重新加载当前关卡
-- [ ] T043 [US3] 在 src/components/Controls.tsx 的 Controls 组件中添加重新开始按钮
-- [ ] T044 [US3] 在 useKeyboard hook 中为重新开始添加键盘快捷键（R 键）
-- [ ] T045 [US3] 确保通关后重新开始功能正常工作
+- [X] T042 [US3] 向 useGameState 添加重新开始函数，清除历史并重新加载当前关卡
+- [X] T043 [US3] 在 src/components/Controls.tsx 的 Controls 组件中添加重新开始按钮
+- [X] T044 [US3] 在 useKeyboard hook 中为重新开始添加键盘快捷键（R 键）
+- [X] T045 [US3] 确保通关后重新开始功能正常工作
 
 **检查点**：所有基本游戏功能正常 - 游戏、撤销、重新开始
 
@@ -134,18 +134,18 @@ description: "推箱子游戏实施任务清单"
 
 ### 用户故事 4 的实施
 
-- [ ] T046 [P] [US4] 在 src/utils/storage.ts 中实现 localStorage 读写函数
-- [ ] T047 [P] [US4] 在 src/hooks/useLocalStorage.ts 中创建管理存档数据的 useLocalStorage hook
-- [ ] T048 [P] [US4] 向 src/data/levels.ts 添加 7+ 更多关卡（总共 10+ 关）
-- [ ] T049 [US4] 将 useLocalStorage 与 useGameState 集成以跟踪已解锁关卡和最佳步数
-- [ ] T050 [US4] 在 useGameState 中添加通关后自动进入下一关（2 秒延迟）
-- [ ] T051 [US4] 在 src/components/LevelSelector.tsx 中创建带关卡网格/列表的 LevelSelector 组件
-- [ ] T052 [US4] 添加关卡解锁逻辑（通关第 N 关解锁第 N+1 关）
-- [ ] T053 [US4] 向 Controls 组件添加打开 LevelSelector 的按钮
-- [ ] T054 [US4] 实现点击 LevelSelector 中关卡时的关卡加载
-- [ ] T055 [US4] 在游戏 UI 中显示当前关卡号和步数
-- [ ] T056 [US4] 为 LevelSelector 组件添加 CSS 样式
-- [ ] T057 [US4] 关卡完成时将进度保存到 localStorage
+- [X] T046 [P] [US4] 在 src/utils/storage.ts 中实现 localStorage 读写函数
+- [X] T047 [P] [US4] 在 src/hooks/useLocalStorage.ts 中创建管理存档数据的 useLocalStorage hook
+- [X] T048 [P] [US4] 向 src/data/levels.ts 添加 7+ 更多关卡（总共 10+ 关）
+- [X] T049 [US4] 将 useLocalStorage 与 useGameState 集成以跟踪已解锁关卡和最佳步数
+- [X] T050 [US4] 在 useGameState 中添加通关后自动进入下一关（2 秒延迟）
+- [X] T051 [US4] 在 src/components/LevelSelector.tsx 中创建带关卡网格/列表的 LevelSelector 组件
+- [X] T052 [US4] 添加关卡解锁逻辑（通关第 N 关解锁第 N+1 关）
+- [X] T053 [US4] 向 Controls 组件添加打开 LevelSelector 的按钮
+- [X] T054 [US4] 实现点击 LevelSelector 中关卡时的关卡加载
+- [X] T055 [US4] 在游戏 UI 中显示当前关卡号和步数
+- [X] T056 [US4] 为 LevelSelector 组件添加 CSS 样式
+- [X] T057 [US4] 关卡完成时将进度保存到 localStorage
 
 **检查点**：所有用户故事现在都应该独立可用 - 完整的游戏体验
 
